@@ -12,9 +12,9 @@ Pored standardnog sečenja, nudimo usluge kantovanja poliuretanskim lepkom, lase
                     
             </div>
             <div className='desc'>
-            <p>D R V O L E K S je firma u kojoj nastaje magija, koju želimo da i Vi prepoznate. Bavimo se izradom unikatih proizvoda od epoxy smole kao i u kombinaciji punog drveta i smole.
+            <p><b>D R V O L E K S</b> je firma u kojoj nastaje magija, koju želimo da i Vi prepoznate. Bavimo se izradom unikatih proizvoda od epoxy smole kao i u kombinaciji punog drveta i smole.
 
-Kod nas možete poručiti sve vrste stolova po željenim dimenzijama, zidne satove, lampe, ukrasne tacne, poslužavnike, daske za serviranje, podmetače za čaše. Svi proizvodi su unikatni i posebni. Na Vama je da odaberete oblik, vrstu drveta, boju epoxy smole, dekoraciju po želji i postolje</p>
+Kod nas možete poručiti sve vrste stolova po željenim dimenzijama, zidne satove, lampe, ukrasne tacne, poslužavnike, daske za serviranje, podmetače za čaše. Svi proizvodi su unikatni i posebni. Na Vama je da odaberete oblik, vrstu drveta, boju epoxy smole, i dekoraciju po želji!</p>
   <img className='portfolioImg' src='https://www.daibau.rs/images/backgrounds/90/1small.jpg'></img>
           
             </div>

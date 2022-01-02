@@ -107,7 +107,7 @@ a {
 
 }
 .desc{
-  padding: 40px;
+  padding: 7%;
   margin-top: 30px;
 }
 p{
@@ -116,4 +116,35 @@ p{
 .header-text{
   margin-left: 30%;
   padding: 10px;
+}
+.footer-div{
+  background-color: silver;
+  background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd37ZhaXi_ZF2_CHNilrGUWVWTZBS5mRS3UQ&usqp=CAU") ;
+}
+.info{
+  margin-left: 40%;
+  padding: 3px;
+}
+.tel{
+  margin-left: 41% !important;
+  padding: 3px;
+}
+.footer{
+  margin-left: 43%;
+  
+
+}
+form{
+  margin-left: 26%;
+}
+.form-div{
+  margin-top:5%;
+  margin-bottom:5%;
+  margin-left:30%;
+  background-color: silver;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  width: 500px;
+  border-radius: 10px;
+  background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd37ZhaXi_ZF2_CHNilrGUWVWTZBS5mRS3UQ&usqp=CAU") ;
 }
