@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import init from '@emailjs/browser';
+
 
 
 
@@ -9,24 +9,27 @@ import init from '@emailjs/browser';
 function Kontakt() {
     const form = useRef();
     function showDiv(elementId) {
-        //const element = document.getElementById(elementId);	
-        //element.style.visibility="visible";
         document.getElementById(elementId).style.visibility = "visible";
         setTimeout(function () { document.getElementById(elementId).style.visibility = "hidden" }, 4000);
 
 
 
     }
+    function resetForm() {
+        document.getElementById('myform').reset();
+    }
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevents default refresh by the browser
+        e.preventDefault(); 
         emailjs.sendForm('service_j7b0k0n', 'template_8cxrsup', form.current, 'user_uGV5v5JL9TmqkjoUhRgwZ')
             .then((result) => {
                 showDiv("porukaUspešno");
+                resetForm();
 
             },
                 (error) => {
                     showDiv("porukaNeuspešno");
+                    resetForm();
 
                 });
 
@@ -36,7 +39,7 @@ function Kontakt() {
     return (<>
         <div className='form-div'>
 
-            <form ref={form} id="myForm"
+            <form ref={form} id="myform"
                 onSubmit={handleSubmit}
                 method="POST"
                 target="_blank"
@@ -79,7 +82,7 @@ function Kontakt() {
 
         </div>
         <div id="porukaUspešno" style={{ visibility: "hidden" }}>
-            Uspešno ste vas kontaktirali. Odgovorićemo u najkraćem mogućem roku.
+            Uspešno ste nas kontaktirali. Odgovorićemo u najkraćem mogućem roku.
         </div>
         <div id="porukaNeuspešno" style={{ visibility: "hidden" }}>
             Došlo je do greške. Molimo Vas pokušajte kasnije.

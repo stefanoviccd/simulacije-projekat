@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Main() {
+
     return (
         <>
         <div className='header-text'><h2>Mi imamo sve što Vam je potrebno!</h2></div>
