@@ -10,6 +10,16 @@
   padding-left: 25px;
   background-color:black !important;
 }
+.card-title{
+height: 40px;
+
+}
+.card-text{
+  padding: 0px;
+  color: gray;
+
+  
+}
 
 .navBarItem {
   display: flex;
@@ -37,19 +47,40 @@
 .all-products {
   display: grid;
   grid-template-columns: repeat(4,25%);
-  margin: 20px;
+  margin: 30px;
 }
 
 .card {
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
+  border: 2px solid;
   border-radius: 10px;
   max-width: 300px;
   max-height: 600px;
-  margin-bottom: 10px;
+  margin: 17px;
+  align-content: center;
 
 }
+.posaljiUpit{
+background-color: red;
+border: 2px solid red;
+color: white;
+font-weight: 600;
+margin-left: 27%;
+text-decoration: none;
+padding-left:10px;
+padding-right:10px;
+padding-top:3px;
+padding-bottom: 3px;
+
+
+}
+.posaljiUpit:hover{
+  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
+  color: white;
+ 
+
+}
+
+
 
 .card-img-top {
   border-top-left-radius: 10px;
@@ -57,9 +88,24 @@
 }
 
 .card-body {
-  margin: 10px;
+  padding: 2px;
+
 }
 
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  
+
+  
+}
+.aUpit{
+    text-decoration: none;
+    color: white;
+  }
+  .aUpit:hover{
+    text-decoration: none;
+    color: white;
+  }
 .btn {
   background-color: cornflowerblue;
   color: white;
@@ -79,7 +125,7 @@ a {
 }
 
 .cart-container {
-  margin: 20px;
+  margin: 10px;
 }
 
 .card-cart {
