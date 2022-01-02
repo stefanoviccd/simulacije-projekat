@@ -1,51 +1,91 @@
 import React from 'react'
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import init from '@emailjs/browser';
+
+
+
 
 function Kontakt() {
-    return (
+    const form = useRef();
+    function showDiv(elementId) {
+        //const element = document.getElementById(elementId);	
+        //element.style.visibility="visible";
+        document.getElementById(elementId).style.visibility = "visible";
+        setTimeout(function () { document.getElementById(elementId).style.visibility = "hidden" }, 4000);
+
+
+
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevents default refresh by the browser
+        emailjs.sendForm('service_j7b0k0n', 'template_8cxrsup', form.current, 'user_uGV5v5JL9TmqkjoUhRgwZ')
+            .then((result) => {
+                showDiv("porukaUspešno");
+
+            },
+                (error) => {
+                    showDiv("porukaNeuspešno");
+
+                });
+
+
+    };
+
+    return (<>
         <div className='form-div'>
-             <form
-       // action={FORM_ENDPOINT}
-        //onSubmit={handleSubmit}
-        method="POST"
-        target="_blank"
-      >
-        <div className="mb-3 pt-0">
-          <input
-            type="text"
-            placeholder="Your name"
-            name="name"
-            className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
-            required
-          />
+
+            <form ref={form} id="myForm"
+                onSubmit={handleSubmit}
+                method="POST"
+                target="_blank"
+            >
+                <div className="mb-3 pt-0">
+                    <input
+                        type="text"
+                        placeholder="Your name"
+                        name="name" id="name"
+                        className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                        required
+                    />
+                </div>
+                <div className="mb-3 pt-0">
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                        required
+                    />
+                </div>
+                <div className="mb-3 pt-0">
+                    <textarea
+                        placeholder="Your message"
+                        name="message"
+                        className=" px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                        required style={{ width: 300 + "px" }}
+                    />
+                </div>
+                <div className="mb-3 pt-0">
+                    <button
+                        className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase  rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="submit" value="send" style={{ backgroundColor: "gray", height: 50 + "px" }}
+                    >
+                        Send a message
+                    </button>
+                </div>
+            </form>
+
         </div>
-        <div className="mb-3 pt-0">
-          <input
-            type="email"
-            placeholder="Email"
-            name="email"
-            className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
-            required
-          />
+        <div id="porukaUspešno" style={{ visibility: "hidden" }}>
+            Uspešno ste vas kontaktirali. Odgovorićemo u najkraćem mogućem roku.
         </div>
-        <div className="mb-3 pt-0">
-          <textarea
-            placeholder="Your message"
-            name="message"
-            className=" px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
-            required style={{width: 300+"px"}}
-          />
+        <div id="porukaNeuspešno" style={{ visibility: "hidden" }}>
+            Došlo je do greške. Molimo Vas pokušajte kasnije.
         </div>
-        <div className="mb-3 pt-0">
-          <button
-            className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase  rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            type="submit" style={{backgroundColor: "gray", height: 50+"px"}}
-          >
-           Send a message
-          </button>
-        </div>
-      </form>
-        </div>
-       
+    </>
+
     );
 }
 

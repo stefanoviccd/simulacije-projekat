@@ -148,3 +148,25 @@ form{
   border-radius: 10px;
   background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd37ZhaXi_ZF2_CHNilrGUWVWTZBS5mRS3UQ&usqp=CAU") ;
 }
+.formSentMsg{
+  visibility :"hidden"
+}
+#porukaUspešno{
+  width: 600px;
+  height: 40px;
+  background-color: #90EE90;
+  color: black;
+  margin-left: 26%;
+  padding: 10px;
+  margin-top: 2%;
+}
+
+#porukaNeuspešno{
+  width: 600px;
+  height: 40px;
+  background-color: red;
+  color: black;
+  margin-left: 26%;
+  padding: 10px;
+  margin-top: 2%;
+}
