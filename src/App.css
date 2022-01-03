@@ -107,11 +107,6 @@ padding-bottom: 3px;
 
 
 
-.card-img-top {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
 .card-body {
   padding: 2px;
 
@@ -131,17 +126,7 @@ padding-bottom: 3px;
     text-decoration: none;
     color: white;
   }
-.btn {
-  background-color: cornflowerblue;
-  color: white;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin: 3px;
-  border-radius: 3px;
-  border-width: 0px;
-}
+
 
 a {
   color: black;
@@ -163,10 +148,6 @@ a {
   max-width: 500px;
 }
 
-.card-img-left {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
 .portfolioImg{
   width: 500px ;
   height: 400px;
@@ -216,10 +197,7 @@ a {
   margin-top: 20px;
   margin-left: 20%;
 }
-.desc{
-  padding: 7%;
-  margin-top: 30px;
-}
+
 .main{
   margin-bottom: 37%
 }

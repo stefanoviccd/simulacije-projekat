@@ -1,17 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-
-
-
-
 function Product({ product, detaljnije, otkaziUpit, strUpit }) {
-
-
-
-
-
-
 
     return (
         <div className="card"  >

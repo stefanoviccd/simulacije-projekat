@@ -1,5 +1,5 @@
 import React from 'react'
-import Product from './Product.jsx';
+import Product from './Proizvod.jsx';
 
 const Products = ({ products, detaljnije }) => {
     return (

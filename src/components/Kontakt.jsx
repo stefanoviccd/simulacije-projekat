@@ -2,17 +2,11 @@ import React from 'react'
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
-
-
-
-
 function Kontakt() {
     const form = useRef();
     function showDiv(elementId) {
         document.getElementById(elementId).style.visibility = "visible";
         setTimeout(function () { document.getElementById(elementId).style.visibility = "hidden" }, 4000);
-
-
 
     }
     function resetForm() {
@@ -20,7 +14,7 @@ function Kontakt() {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         emailjs.sendForm('service_j7b0k0n', 'template_8cxrsup', form.current, 'user_uGV5v5JL9TmqkjoUhRgwZ')
             .then((result) => {
                 showDiv("porukaUspešno");

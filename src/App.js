@@ -2,11 +2,11 @@ import './App.css';
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar';
-import Main from './components/Main';
+import Main from './components/Glavna';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './components/Footer';
+import Footer from './components/Futer';
 import Kontakt from './components/Kontakt';
-import Products from './components/Products';
+import Products from './components/Proizvodi';
 import Upit from './components/Upit';
 import SviUpiti from './components/SviUpiti';
 
@@ -17,10 +17,8 @@ import SviUpiti from './components/SviUpiti';
 
 function App() {
 
-
-
   const [cartNum, setCartNum] = useState(0);
-  const [products] = useState([
+  const [proizvodi] = useState([
     {
       id: 1,
       naziv: "AKRIL BELI MAT",
@@ -114,19 +112,16 @@ function App() {
     },
 
   ]);
-  const [searchProduct, setsearchProduct] = useState(products[0]);
+  const [searchProduct, setsearchProduct] = useState(proizvodi[0]);
   const [cartProducts, setCartProducts] = useState([]);
 
-  function refreshCart() {
-    let newProducts = products.filter((prod) => prod.kolicina > 0);
-    setCartProducts(newProducts);
-    console.log("Broj u korpi: " + newProducts.length)
-    console.log("Broj u korpi: " + cartProducts.length)
-
+  function osveziUpite() {
+    let noviProizvodi = proizvodi.filter((prod) => prod.kolicina > 0);
+    setCartProducts(noviProizvodi);
 
   }
   function detaljnije(id) {
-    products.forEach((prod) => {
+    proizvodi.forEach((prod) => {
       if (prod.id === id) {
         setsearchProduct(prod);
       }
@@ -135,31 +130,29 @@ function App() {
 
   }
   function posaljiUpit(id, kolicina) {
-  
+
     let num = parseInt(kolicina);
-    products.forEach((prod) => {
+    proizvodi.forEach((prod) => {
       if (prod.id === id) {
-        if(prod.kolicina===0)  setCartNum(cartNum + 1);
+        if (prod.kolicina === 0) setCartNum(cartNum + 1);
         prod.kolicina = prod.kolicina + num;
-        console.log("Kolicina proizvoda: " + prod.kolicina);
       }
 
     }
     );
-    refreshCart();
+    osveziUpite();
   }
   function otkaziUpit(id, kolicina) {
     setCartNum(cartNum - 1);
     let num = parseInt(kolicina);
-    products.forEach((prod) => {
+    proizvodi.forEach((prod) => {
       if (prod.id === id) {
         prod.kolicina = prod.kolicina - num;
-        console.log("Kolicina proizvoda: " + prod.kolicina);
       }
 
     }
     );
-    refreshCart();
+    osveziUpite();
   }
 
 
@@ -179,15 +172,15 @@ function App() {
         />
         <Route
           path="/proizvodi"
-          element={<Products products={products} detaljnije={detaljnije} />}
+          element={<Products products={proizvodi} detaljnije={detaljnije} />}
 
 
         />
         <Route
           path="/upiti"
-          element= {
+          element={
             <SviUpiti upiti={cartProducts} otkaziUpit={otkaziUpit} />}
-        
+
 
         />
 
