@@ -17,6 +17,7 @@ function Upit({ product, posaljiUpit }) {
                 <p className='dp'>Dužina: {product.duzina}</p>
                 <p className='dp'>Širina: {product.sirina}</p>
                 <p className='dp'>Način prodaje: {product.nacinProdaje}</p>
+                <p className='dp'>Cena: <b>{product.cena}</b></p>
                 <label className='dpl' >Količina
 
                     <input type="number" min="0" name="name" id="kol"style={{ width: 100 + "px", marginLeft: 10 + "px" }} />

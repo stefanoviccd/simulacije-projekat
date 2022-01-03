@@ -174,7 +174,9 @@ function App() {
         setTimeout(function () { document.getElementById("uspešno").style.visibility = "hidden";
         setCartNum(0);
         proizvodi.forEach((prod)=>prod.kolicina=0);
+        settotalPrice(0);
         setCartProducts([]);}, 3000);
+        
 
     
    
