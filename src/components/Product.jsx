@@ -5,12 +5,12 @@ import { Link, withRouter } from 'react-router-dom';
 
 
 
-function Product({product, detaljnije}) {
+function Product({ product, detaljnije, otkaziUpit, strUpit }) {
 
-   
-    
-    
-   
+
+
+
+
 
 
     return (
@@ -22,20 +22,35 @@ function Product({product, detaljnije}) {
             />
             <div className="card-body">
                 <h5 className="card-title">{product.naziv}</h5>
-                <p className="card-text">{product.proizvodjac}</p>
-               { <button  className='posaljiUpit'  onClick={() => detaljnije(product.id)}><Link to= {"/proizvodi/"+product.id} className='link' >Detaljnije</Link></button> }
-         
-               
-              
+
+                {strUpit === 0 ? (
+                    <>
+                        <p className="card-text">{product.proizvodjac}</p>
+                    </>
+                ) : (
+                    <p className="card-text">Količina: {product.kolicina}</p>
+
+                )}
+
+                {strUpit === 0 ? (
+                    <>
+                        {<button className='posaljiUpit' onClick={() => detaljnije(product.id)}><Link to={"/proizvodi/" + product.id} className='link' >Detaljnije</Link></button>}
+
+                    </>
+                ) : (
+                    <button className='posaljiUpit' onClick={() => otkaziUpit(product.id, product.kolicina)}>Otkaži upit</button>
+
+                )}
 
 
 
-               
-               
+
+
+
             </div>
         </div>
     )
- 
+
 }
 
 export default Product

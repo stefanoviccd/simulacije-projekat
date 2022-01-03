@@ -220,6 +220,9 @@ a {
   padding: 7%;
   margin-top: 30px;
 }
+.main{
+  margin-bottom: 37%
+}
 p{
   padding: 30px;
 }
@@ -230,6 +233,9 @@ p{
 .footer-div{
   background-color: silver;
   background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd37ZhaXi_ZF2_CHNilrGUWVWTZBS5mRS3UQ&usqp=CAU") ;
+  position:relative;
+   bottom:0;
+   width:100%;
 }
 .info{
   margin-left: 40%;

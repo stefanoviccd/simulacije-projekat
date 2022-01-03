@@ -6,7 +6,7 @@ const Products = ({ products, detaljnije }) => {
         <div className="all-products">
             {products.map((prod) => {
                
-                return <Product product={prod} detaljnije={detaljnije} key={prod.id} />;
+                return <Product product={prod} detaljnije={detaljnije} key={prod.id} strUpit={0} />;
             })}
         </div>
 

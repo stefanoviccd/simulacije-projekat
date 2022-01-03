@@ -1,7 +1,8 @@
+
 import React from 'react'
 
-function Upit({ product }) {
-    console.log(product.naziv);
+function Upit({ product, posaljiUpit }) {
+    
     return (
         <div className='gridDiv'>
             <div className='product-img'>
@@ -18,9 +19,9 @@ function Upit({ product }) {
                 <p className='dp'>Način prodaje: {product.nacinProdaje}</p>
                 <label className='dpl' >Količina
 
-                    <input type="text" name="name" style={{ width: 100 + "px", marginLeft: 10 + "px" }} />
+                    <input type="number" min="0" name="name" id="kol"style={{ width: 100 + "px", marginLeft: 10 + "px" }} />
                 </label><br></br>
-                <button className='btnUpit'>Pošalji upit</button>
+                <button className='btnUpit' onClick={() => posaljiUpit(product.id, document.getElementById("kol").value)} >Pošalji upit</button>
 
 
             </div>

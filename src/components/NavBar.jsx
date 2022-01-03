@@ -8,11 +8,12 @@ import * as Scroll from 'react-scroll';
 function NavBar({cartNum})  {
     console.log({cartNum});
     return (
+        
         <div className="navBar">
             <Link to="/" className="navBarItem"><GiWoodPile /><span> &nbsp;&nbsp; </span> DRVOLEKS<span> &nbsp;&nbsp; </span> <GiWoodPile /></Link>
             <Link to="/proizvodi" className="navBarItem">Naši proizvodi</Link>
             <Link to="/kontakt" className="navBarItem">Kontakt</Link>
-            <Link to="/cart" className="cart-items">
+            <Link to="/upiti" className="cart-items">
                 <div className='cart-num'><BsCartFill  />&nbsp;&nbsp; {cartNum}</div>
       
        
