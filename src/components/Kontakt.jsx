@@ -69,7 +69,7 @@ function Kontakt() {
                         className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase  rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         type="submit" value="send" style={{ backgroundColor: "gray", height: 50 + "px" }}
                     >
-                        Send a message
+                        Pošalji poruku
                     </button>
                 </div>
             </form>
