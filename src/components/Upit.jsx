@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Upit({ product }) {
+    console.log(product.naziv);
     return (
         <div className='gridDiv'>
             <div className='product-img'>

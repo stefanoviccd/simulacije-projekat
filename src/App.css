@@ -186,6 +186,11 @@ a {
   padding: 20px;
 
 }
+.product-img img {
+  width: 500px;
+  height: 400px;
+
+}
 .dp{
   margin: 2px;
   margin-bottom: 10px;

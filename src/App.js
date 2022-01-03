@@ -7,12 +7,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
 import Kontakt from './components/Kontakt';
 import Products from './components/Products';
-import Product from './components/Product';
 import Upit from './components/Upit';
 
 
 
+
+
+
 function App() {
+
 
 
   const [cartNum, setCartNum] = useState(0);
@@ -108,29 +111,26 @@ function App() {
 
   ]);
   const [searchProduct, setsearchProduct] = useState(products[4]);
+  const [cartProducts, setCartProducts] = useState([]);
 
   function refreshCart() {
-    let newProducts = products.filter((prod) => prod.kolicina > 0);
-   // { console.log(newProducts.length) };
+    let newProducts = products.filter((prod) => prod.amount > 0);
+    setCartProducts(newProducts);
+
   }
-  function addProduct(title, id) {
-    let newProduct=products.filter((prod) => prod.id == id);
-    console.log(newProduct);
-    setsearchProduct(newProduct);
-    console.log(searchProduct);
+  function detaljnije(id) {
+    products.forEach((prod) => {
+      if (prod.id === id) {
+        setsearchProduct(prod);
+      }
 
+    });
 
-    
- 
 
     
     }
-    //window.location.replace('/proizvodi/'+id);
-    /*console.log("Dodat je proizvod: " + title);
-    setCartNum(cartNum + 1);
-    console.log("Broj proizvoda u korpi: " + cartNum);
+    
 
-    refreshCart();*/
   
 
   return (
@@ -142,13 +142,15 @@ function App() {
           element={<Main />}
         />
         <Route
-          path="/proizvodi"
-          element={<Products products={products} posaljiUpit={addProduct} />}
+          path="/proizvodi/:id"
+          element={<Upit product={searchProduct}    />}
         />
         <Route
-          path="/proizvodi/:id"
-          element={<Upit product={searchProduct}  />}
+          path="/proizvodi"
+          element={<Products products={products} detaljnije={detaljnije} />}
+          
         />
+        
 
         <Route path="/kontakt" element={<Kontakt />} />
       </Routes>
