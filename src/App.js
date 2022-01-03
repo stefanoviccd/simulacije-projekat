@@ -28,6 +28,7 @@ function App() {
       duzina: 1300,
       sirina: 1800,
       nacinProdaje: "CELA",
+      cena:1200,
       kolicina: 0
 
     },
@@ -40,6 +41,7 @@ function App() {
       duzina: 1000,
       sirina: 1800,
       nacinProdaje: "CELA",
+      cena:1500,
       kolicina: 0
     },
     {
@@ -51,6 +53,7 @@ function App() {
       duzina: 1450,
       sirina: 1900,
       nacinProdaje: "CELA",
+      cena:1240,
       kolicina: 0
     },
     {
@@ -62,6 +65,7 @@ function App() {
       duzina: 1300,
       sirina: 2000,
       nacinProdaje: "CELA",
+      cena:2000,
       kolicina: 0,
 
     },
@@ -74,6 +78,7 @@ function App() {
       duzina: 1600,
       sirina: 1800,
       nacinProdaje: "CELA",
+      cena:2350,
       kolicina: 0,
 
     },
@@ -86,6 +91,7 @@ function App() {
       duzina: 1900,
       sirina: 2100,
       nacinProdaje: "CELA",
+      cena:4000,
       kolicina: 0,
     },
     {
@@ -97,6 +103,7 @@ function App() {
       duzina: 1300,
       sirina: 1800,
       nacinProdaje: "CELA",
+      cena:1200,
       kolicina: 0
     },
     {
@@ -108,12 +115,14 @@ function App() {
       duzina: 2300,
       sirina: 1800,
       nacinProdaje: "CELA",
+      cena:1900,
       kolicina: 0
     },
 
   ]);
   const [searchProduct, setsearchProduct] = useState(proizvodi[0]);
   const [cartProducts, setCartProducts] = useState([]);
+  const [totalPrice, settotalPrice] = useState(0);
 
   function osveziUpite() {
     let noviProizvodi = proizvodi.filter((prod) => prod.kolicina > 0);
@@ -136,6 +145,9 @@ function App() {
       if (prod.id === id) {
         if (prod.kolicina === 0) setCartNum(cartNum + 1);
         prod.kolicina = prod.kolicina + num;
+        let price=totalPrice+prod.cena*num;
+        settotalPrice(price);
+        console.log(totalPrice);
       }
 
     }
@@ -148,11 +160,24 @@ function App() {
     proizvodi.forEach((prod) => {
       if (prod.id === id) {
         prod.kolicina = prod.kolicina - num;
+        let price=totalPrice-prod.cena*num;
+        settotalPrice(price);
+        console.log(totalPrice);
       }
 
     }
     );
     osveziUpite();
+  }
+  function potvrdiPorudzbinu(){
+     document.getElementById("uspešno").style.visibility = "visible";
+        setTimeout(function () { document.getElementById("uspešno").style.visibility = "hidden";
+        setCartNum(0);
+        proizvodi.forEach((prod)=>prod.kolicina=0);
+        setCartProducts([]);}, 3000);
+
+    
+   
   }
 
 
@@ -179,7 +204,7 @@ function App() {
         <Route
           path="/upiti"
           element={
-            <SviUpiti upiti={cartProducts} otkaziUpit={otkaziUpit} />}
+            <SviUpiti upiti={cartProducts} otkaziUpit={otkaziUpit} totalPrice={totalPrice} potvrdiPorudzbinu={potvrdiPorudzbinu}/>}
 
 
         />
