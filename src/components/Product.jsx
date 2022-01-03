@@ -6,7 +6,8 @@ import { Link, withRouter } from 'react-router-dom';;
 
 
 
-function Product({product}) {
+function Product({product, posaljiUpit}) {
+   
     
     
    
@@ -22,7 +23,7 @@ function Product({product}) {
             <div className="card-body">
                 <h5 className="card-title">{product.naziv}</h5>
                 <p className="card-text">{product.proizvodjac}</p>
-               { <button type='submit' className='posaljiUpit' >Pošalji upit</button> }
+               { <button  className='posaljiUpit'  onClick={() => posaljiUpit(product.naziv, product.id)}> <Link to= {"/proizvodi/"+product.id} className='link' >Pošalji upit</Link></button> }
       
               
 
