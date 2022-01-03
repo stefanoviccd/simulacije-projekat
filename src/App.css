@@ -236,6 +236,16 @@ p{
 form{
   margin-left: 26%;
 }
+.prazna{
+  font-size: 30px;
+  margin-top:0px;
+}
+
+#root{
+  background-image:url("https://drvolux.rs/wp-content/uploads/2021/06/8803360636958-500x375.jpg") ;
+  height: 100%;
+
+}
 .form-div{
   margin-top:5%;
   margin-bottom:5%;

@@ -20,7 +20,7 @@ function Upit({ product, posaljiUpit }) {
                 <p className='dp'>Cena: <b>{product.cena}</b></p>
                 <label className='dpl' >Količina
 
-                    <input type="number" min="0" name="name" id="kol"style={{ width: 100 + "px", marginLeft: 10 + "px" }} />
+                    <input type="number" min="1" name="name" id="kol"style={{ width: 100 + "px", marginLeft: 10 + "px" }} />
                 </label><br></br>
                 <button className='btnUpit' onClick={() => posaljiUpit(product.id, document.getElementById("kol").value)} >Pošalji upit</button>
 
