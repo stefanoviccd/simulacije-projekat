@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-function Product({ product, detaljnije, otkaziUpit, strUpit }) {
 
-    return (
+function Product({ product, detaljnije, otkaziUpit, strUpit, slicniProizvodi}) {
+
+    return (<>
         <div className="card"  >
             <img
                 className="card-img-top"
@@ -39,6 +40,8 @@ function Product({ product, detaljnije, otkaziUpit, strUpit }) {
 
             </div>
         </div>
+        
+        </>
     )
 
 }

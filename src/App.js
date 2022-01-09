@@ -205,6 +205,19 @@ function App() {
       kolicina: 0,
       tip: "radne"
     },
+    {
+      id: 15,
+      naziv: "WENGE",
+      proizvodjac: "Stilles",
+      slika: "https://drvolux.rs/wp-content/uploads/2021/06/wenge-500x375.jpg",
+      debljina: 18.8,
+      duzina: 1000,
+      sirina: 900,
+      nacinProdaje: "CELA",
+      cena: 1900,
+      kolicina: 0,
+      tip: "radne"
+    },
 
   ]);
   const [searchProduct, setsearchProduct] = useState(proizvodi[0]);
@@ -224,7 +237,7 @@ function App() {
 
 
     }
-    
+
     );
 
   }
@@ -259,6 +272,7 @@ function App() {
     );
     osveziUpite();
   }
+
   function potvrdiPorudzbinu() {
     document.getElementById("uspešno").style.visibility = "visible";
     setTimeout(function () {
@@ -298,26 +312,26 @@ function App() {
         />
         <Route
           path="/proizvodi/compactPloce"
-          element={<Products products={proizvodi.filter((p)=>p.tip==="compact")} detaljnije={detaljnije} />}
+          element={<Products products={proizvodi.filter((p) => p.tip === "compact")} detaljnije={detaljnije} />}
 
 
 
         />
-         <Route
+        <Route
           path="/proizvodi/akrilnePloce"
-          element={<Products products={proizvodi.filter((p)=>p.tip==="akrilne")} detaljnije={detaljnije} />}
+          element={<Products products={proizvodi.filter((p) => p.tip === "akrilne")} detaljnije={detaljnije} />}
 
 
 
         />
-         <Route
+        <Route
           path="/proizvodi/radnePloce"
-          element={<Products products={proizvodi.filter((p)=>p.tip==="radne")} detaljnije={detaljnije} />}
+          element={<Products products={proizvodi.filter((p) => p.tip === "radne")} detaljnije={detaljnije} />}
 
 
 
         />
-            <Route
+        <Route
           path="/upiti"
           element={
             <SviUpiti upiti={cartProducts} otkaziUpit={otkaziUpit} totalPrice={totalPrice} potvrdiPorudzbinu={potvrdiPorudzbinu} />}

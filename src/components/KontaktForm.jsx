@@ -12,10 +12,11 @@ function KontaktForm() {
     function resetForm() {
         document.getElementById('myform').reset();
     }
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        emailjs.sendForm('service_j7b0k0n', 'template_8cxrsup', form.current, 'user_uGV5v5JL9TmqkjoUhRgwZ')
+        emailjs.sendForm('service_qz8opwr', 'template_amvdwgo', form.current, 'user_E4E0FYL3wRbsdw4LHHoSD')
             .then((result) => {
                 showDiv("porukaUspešno");
                 resetForm();
