@@ -18,6 +18,7 @@ import SviUpiti from './components/SviUpiti';
 function App() {
 
   const [cartNum, setCartNum] = useState(0);
+
   const [proizvodi] = useState([
     {
       id: 1,
@@ -28,8 +29,9 @@ function App() {
       duzina: 1300,
       sirina: 1800,
       nacinProdaje: "CELA",
-      cena:1200,
-      kolicina: 0
+      cena: 1200,
+      kolicina: 0,
+      tip: "akrilne"
 
     },
     {
@@ -41,8 +43,9 @@ function App() {
       duzina: 1000,
       sirina: 1800,
       nacinProdaje: "CELA",
-      cena:1500,
-      kolicina: 0
+      cena: 1500,
+      kolicina: 0,
+      tip: "akrilne"
     },
     {
       id: 3,
@@ -53,8 +56,9 @@ function App() {
       duzina: 1450,
       sirina: 1900,
       nacinProdaje: "CELA",
-      cena:1240,
-      kolicina: 0
+      cena: 1240,
+      kolicina: 0,
+      tip: "akrilne"
     },
     {
       id: 4,
@@ -65,8 +69,9 @@ function App() {
       duzina: 1300,
       sirina: 2000,
       nacinProdaje: "CELA",
-      cena:2000,
+      cena: 2000,
       kolicina: 0,
+      tip: "akrilne"
 
     },
     {
@@ -78,8 +83,9 @@ function App() {
       duzina: 1600,
       sirina: 1800,
       nacinProdaje: "CELA",
-      cena:2350,
+      cena: 2350,
       kolicina: 0,
+      tip: "akrilne"
 
     },
     {
@@ -91,8 +97,9 @@ function App() {
       duzina: 1900,
       sirina: 2100,
       nacinProdaje: "CELA",
-      cena:4000,
+      cena: 4000,
       kolicina: 0,
+      tip: "akrilne"
     },
     {
       id: 7,
@@ -103,8 +110,9 @@ function App() {
       duzina: 1300,
       sirina: 1800,
       nacinProdaje: "CELA",
-      cena:1200,
-      kolicina: 0
+      cena: 1200,
+      kolicina: 0,
+      tip: "akrilne"
     },
     {
       id: 8,
@@ -115,8 +123,87 @@ function App() {
       duzina: 2300,
       sirina: 1800,
       nacinProdaje: "CELA",
-      cena:1900,
-      kolicina: 0
+      cena: 1900,
+      kolicina: 0,
+      tip: "akrilne"
+    },
+    {
+      id: 9,
+      naziv: "BREZA SIVA",
+      proizvodjac: "Fundermax",
+      slika: "https://drvolux.rs/wp-content/uploads/2021/06/breza-500x375.jpg",
+      debljina: 15.8,
+      duzina: 2300,
+      sirina: 1800,
+      nacinProdaje: "CELA",
+      cena: 2000,
+      kolicina: 0,
+      tip: "compact"
+    },
+    {
+      id: 10,
+      naziv: "CHARLES",
+      proizvodjac: "Fundermax",
+      slika: "https://drvolux.rs/wp-content/uploads/2021/06/fileadmin__processed__7_7_csm_0538_A4_Web_502a2ae63c-500x375.jpg",
+      debljina: 15.8,
+      duzina: 2300,
+      sirina: 1800,
+      nacinProdaje: "CELA",
+      cena: 1000,
+      kolicina: 0,
+      tip: "compact"
+    },
+    {
+      id: 11,
+      naziv: "ROCKSTAR",
+      proizvodjac: "Fundermax",
+      slika: "https://drvolux.rs/wp-content/uploads/2021/06/fileadmin_redakteure__processed__c_5_csm_0406_A4_7d95edeb4a-768x578.jpg",
+      debljina: 15.8,
+      duzina: 2300,
+      sirina: 1800,
+      nacinProdaje: "CELA",
+      cena: 1900,
+      kolicina: 0,
+      tip: "compact"
+    },
+    {
+      id: 12,
+      naziv: "ALPINE OAK SNOW",
+      proizvodjac: "Kaindl",
+      slika: "https://drvolux.rs/wp-content/uploads/2021/06/csm_K4325_AW_Rapport_1733d1b490-1000x750.jpg",
+      debljina: 18.8,
+      duzina: 1000,
+      sirina: 900,
+      nacinProdaje: "CELA",
+      cena: 1900,
+      kolicina: 0,
+      tip: "radne"
+    },
+    {
+      id: 13,
+      naziv: "ARIZONA PINE",
+      proizvodjac: "Kaindl",
+      slika: "https://drvolux.rs/wp-content/uploads/2021/06/csm_34232_AT_Rapportdaten_18b1f462e6-1000x750.jpg",
+      debljina: 18.8,
+      duzina: 1000,
+      sirina: 900,
+      nacinProdaje: "CELA",
+      cena: 1900,
+      kolicina: 0,
+      tip: "radne"
+    },
+    {
+      id: 14,
+      naziv: "VANILA SJAJ",
+      proizvodjac: "Kaindl",
+      slika: "https://drvolux.rs/wp-content/uploads/2021/06/vanila-sjaj-500x375.jpg",
+      debljina: 13,
+      duzina: 1000,
+      sirina: 900,
+      nacinProdaje: "CELA",
+      cena: 1500,
+      kolicina: 0,
+      tip: "radne"
     },
 
   ]);
@@ -135,7 +222,10 @@ function App() {
         setsearchProduct(prod);
       }
 
-    });
+
+    }
+    
+    );
 
   }
   function posaljiUpit(id, kolicina) {
@@ -145,7 +235,7 @@ function App() {
       if (prod.id === id) {
         if (prod.kolicina === 0) setCartNum(cartNum + 1);
         prod.kolicina = prod.kolicina + num;
-        let price=totalPrice+prod.cena*num;
+        let price = totalPrice + prod.cena * num;
         settotalPrice(price);
         console.log(totalPrice);
       }
@@ -160,7 +250,7 @@ function App() {
     proizvodi.forEach((prod) => {
       if (prod.id === id) {
         prod.kolicina = prod.kolicina - num;
-        let price=totalPrice-prod.cena*num;
+        let price = totalPrice - prod.cena * num;
         settotalPrice(price);
         console.log(totalPrice);
       }
@@ -169,17 +259,19 @@ function App() {
     );
     osveziUpite();
   }
-  function potvrdiPorudzbinu(){
-     document.getElementById("uspešno").style.visibility = "visible";
-        setTimeout(function () { document.getElementById("uspešno").style.visibility = "hidden";
-        setCartNum(0);
-        proizvodi.forEach((prod)=>prod.kolicina=0);
-        settotalPrice(0);
-        setCartProducts([]);}, 3000);
-        
+  function potvrdiPorudzbinu() {
+    document.getElementById("uspešno").style.visibility = "visible";
+    setTimeout(function () {
+      document.getElementById("uspešno").style.visibility = "hidden";
+      setCartNum(0);
+      proizvodi.forEach((prod) => prod.kolicina = 0);
+      settotalPrice(0);
+      setCartProducts([]);
+    }, 3000);
 
-    
-   
+
+
+
   }
 
 
@@ -202,11 +294,33 @@ function App() {
           element={<Products products={proizvodi} detaljnije={detaljnije} />}
 
 
+
         />
         <Route
+          path="/proizvodi/compactPloce"
+          element={<Products products={proizvodi.filter((p)=>p.tip==="compact")} detaljnije={detaljnije} />}
+
+
+
+        />
+         <Route
+          path="/proizvodi/akrilnePloce"
+          element={<Products products={proizvodi.filter((p)=>p.tip==="akrilne")} detaljnije={detaljnije} />}
+
+
+
+        />
+         <Route
+          path="/proizvodi/radnePloce"
+          element={<Products products={proizvodi.filter((p)=>p.tip==="radne")} detaljnije={detaljnije} />}
+
+
+
+        />
+            <Route
           path="/upiti"
           element={
-            <SviUpiti upiti={cartProducts} otkaziUpit={otkaziUpit} totalPrice={totalPrice} potvrdiPorudzbinu={potvrdiPorudzbinu}/>}
+            <SviUpiti upiti={cartProducts} otkaziUpit={otkaziUpit} totalPrice={totalPrice} potvrdiPorudzbinu={potvrdiPorudzbinu} />}
 
 
         />
