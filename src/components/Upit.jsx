@@ -1,9 +1,11 @@
 
 import React from 'react'
+import Products from './Proizvodi.jsx';
 
 function Upit({ product, posaljiUpit }) {
     
     return (
+        <>
         <div className='gridDiv'>
             <div className='product-img'>
                 <img src={product.slika}></img>
@@ -28,6 +30,11 @@ function Upit({ product, posaljiUpit }) {
             </div>
 
         </div>
+        <div className="slicniProizvodi">
+          <p>TO DO: SLICNI PROIZVODI</p>
+            
+        </div>
+        </>
     )
 }
 
