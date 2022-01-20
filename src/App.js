@@ -1,22 +1,31 @@
-import './App.css';
+import "./App.css";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from './components/NavBar';
-import Main from './components/Glavna';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './components/Futer';
-import Kontakt from './components/Kontakt';
-import Products from './components/Proizvodi';
-import Upit from './components/Upit';
-import SviUpiti from './components/SviUpiti';
+import NavBar from "./components/NavBar";
+import Main from "./components/Glavna";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from "./components/Futer";
+import Kontakt from "./components/Kontakt";
+import Products from "./components/Proizvodi";
+import Upit from "./components/Upit";
+import SviUpiti from "./components/SviUpiti";
+import { Canvas, useFrame } from "@react-three/fiber";
+import React, { Suspense, useRef } from "react";
+import { OrbitControls } from "@react-three/drei";
+import Model from "./components/Woodsavertex";
 
-
-
-
-
+const Scene = () => {
+  const scene = useRef();
+  useFrame(() => {
+  });
+  return (
+    <group ref={scene}>
+      <Model></Model>
+    </group>
+  );
+};
 
 function App() {
-
   const [cartNum, setCartNum] = useState(0);
 
   const [proizvodi] = useState([
@@ -31,8 +40,7 @@ function App() {
       nacinProdaje: "CELA",
       cena: 1200,
       kolicina: 0,
-      tip: "akrilne"
-
+      tip: "akrilne",
     },
     {
       id: 2,
@@ -45,7 +53,7 @@ function App() {
       nacinProdaje: "CELA",
       cena: 1500,
       kolicina: 0,
-      tip: "akrilne"
+      tip: "akrilne",
     },
     {
       id: 3,
@@ -58,35 +66,35 @@ function App() {
       nacinProdaje: "CELA",
       cena: 1240,
       kolicina: 0,
-      tip: "akrilne"
+      tip: "akrilne",
     },
     {
       id: 4,
       naziv: "BAGREM TARTUF BRAON",
       proizvodjac: "Univer",
-      slika: "https://drvolux.rs/wp-content/uploads/2021/05/8803392618526-500x375.jpg",
+      slika:
+        "https://drvolux.rs/wp-content/uploads/2021/05/8803392618526-500x375.jpg",
       debljina: 18.3,
       duzina: 1300,
       sirina: 2000,
       nacinProdaje: "CELA",
       cena: 2000,
       kolicina: 0,
-      tip: "akrilne"
-
+      tip: "akrilne",
     },
     {
       id: 5,
       naziv: "BARLEY BLACKWOOD",
       proizvodjac: "Egger",
-      slika: "https://drvolux.rs/wp-content/uploads/2021/05/K021-SN-500x375.jpg",
+      slika:
+        "https://drvolux.rs/wp-content/uploads/2021/05/K021-SN-500x375.jpg",
       debljina: 20,
       duzina: 1600,
       sirina: 1800,
       nacinProdaje: "CELA",
       cena: 2350,
       kolicina: 0,
-      tip: "akrilne"
-
+      tip: "akrilne",
     },
     {
       id: 6,
@@ -99,33 +107,35 @@ function App() {
       nacinProdaje: "CELA",
       cena: 4000,
       kolicina: 0,
-      tip: "akrilne"
+      tip: "akrilne",
     },
     {
       id: 7,
       naziv: "BELI MERMER",
       proizvodjac: "Balto",
-      slika: "https://drvolux.rs/wp-content/uploads/2021/06/700_fs30_w-1-1000x750.jpg",
+      slika:
+        "https://drvolux.rs/wp-content/uploads/2021/06/700_fs30_w-1-1000x750.jpg",
       debljina: 10,
       duzina: 1300,
       sirina: 1800,
       nacinProdaje: "CELA",
       cena: 1200,
       kolicina: 0,
-      tip: "akrilne"
+      tip: "akrilne",
     },
     {
       id: 8,
       naziv: "BLONDE LIBERTY ELM",
       proizvodjac: "Univer",
-      slika: "https://drvolux.rs/wp-content/uploads/2021/05/K017-PW-500x375.jpg",
+      slika:
+        "https://drvolux.rs/wp-content/uploads/2021/05/K017-PW-500x375.jpg",
       debljina: 15.8,
       duzina: 2300,
       sirina: 1800,
       nacinProdaje: "CELA",
       cena: 1900,
       kolicina: 0,
-      tip: "akrilne"
+      tip: "akrilne",
     },
     {
       id: 9,
@@ -138,72 +148,77 @@ function App() {
       nacinProdaje: "CELA",
       cena: 2000,
       kolicina: 0,
-      tip: "compact"
+      tip: "compact",
     },
     {
       id: 10,
       naziv: "CHARLES",
       proizvodjac: "Fundermax",
-      slika: "https://drvolux.rs/wp-content/uploads/2021/06/fileadmin__processed__7_7_csm_0538_A4_Web_502a2ae63c-500x375.jpg",
+      slika:
+        "https://drvolux.rs/wp-content/uploads/2021/06/fileadmin__processed__7_7_csm_0538_A4_Web_502a2ae63c-500x375.jpg",
       debljina: 15.8,
       duzina: 2300,
       sirina: 1800,
       nacinProdaje: "CELA",
       cena: 1000,
       kolicina: 0,
-      tip: "compact"
+      tip: "compact",
     },
     {
       id: 11,
       naziv: "ROCKSTAR",
       proizvodjac: "Fundermax",
-      slika: "https://drvolux.rs/wp-content/uploads/2021/06/fileadmin_redakteure__processed__c_5_csm_0406_A4_7d95edeb4a-768x578.jpg",
+      slika:
+        "https://drvolux.rs/wp-content/uploads/2021/06/fileadmin_redakteure__processed__c_5_csm_0406_A4_7d95edeb4a-768x578.jpg",
       debljina: 15.8,
       duzina: 2300,
       sirina: 1800,
       nacinProdaje: "CELA",
       cena: 1900,
       kolicina: 0,
-      tip: "compact"
+      tip: "compact",
     },
     {
       id: 12,
       naziv: "ALPINE OAK SNOW",
       proizvodjac: "Kaindl",
-      slika: "https://drvolux.rs/wp-content/uploads/2021/06/csm_K4325_AW_Rapport_1733d1b490-1000x750.jpg",
+      slika:
+        "https://drvolux.rs/wp-content/uploads/2021/06/csm_K4325_AW_Rapport_1733d1b490-1000x750.jpg",
       debljina: 18.8,
       duzina: 1000,
       sirina: 900,
       nacinProdaje: "CELA",
       cena: 1900,
       kolicina: 0,
-      tip: "radne"
+      tip: "radne",
     },
     {
       id: 13,
       naziv: "ARIZONA PINE",
       proizvodjac: "Kaindl",
-      slika: "https://drvolux.rs/wp-content/uploads/2021/06/csm_34232_AT_Rapportdaten_18b1f462e6-1000x750.jpg",
+      slika:
+        "https://drvolux.rs/wp-content/uploads/2021/06/csm_34232_AT_Rapportdaten_18b1f462e6-1000x750.jpg",
       debljina: 18.8,
       duzina: 1000,
       sirina: 900,
       nacinProdaje: "CELA",
       cena: 1900,
       kolicina: 0,
-      tip: "radne"
+      tip: "radne",
     },
     {
       id: 14,
       naziv: "VANILA SJAJ",
       proizvodjac: "Kaindl",
-      slika: "https://drvolux.rs/wp-content/uploads/2021/06/vanila-sjaj-500x375.jpg",
+      slika:
+        "https://drvolux.rs/wp-content/uploads/2021/06/vanila-sjaj-500x375.jpg",
       debljina: 13,
       duzina: 1000,
       sirina: 900,
       nacinProdaje: "CELA",
       cena: 1500,
       kolicina: 0,
-      tip: "radne"
+      tip: "radne",
     },
     {
       id: 15,
@@ -216,9 +231,8 @@ function App() {
       nacinProdaje: "CELA",
       cena: 1900,
       kolicina: 0,
-      tip: "radne"
+      tip: "radne",
     },
-
   ]);
   const [searchProduct, setsearchProduct] = useState(proizvodi[0]);
   const [cartProducts, setCartProducts] = useState([]);
@@ -227,22 +241,15 @@ function App() {
   function osveziUpite() {
     let noviProizvodi = proizvodi.filter((prod) => prod.kolicina > 0);
     setCartProducts(noviProizvodi);
-
   }
   function detaljnije(id) {
     proizvodi.forEach((prod) => {
       if (prod.id === id) {
         setsearchProduct(prod);
       }
-
-
-    }
-
-    );
-
+    });
   }
   function posaljiUpit(id, kolicina) {
-
     let num = parseInt(kolicina);
     proizvodi.forEach((prod) => {
       if (prod.id === id) {
@@ -252,9 +259,7 @@ function App() {
         settotalPrice(price);
         console.log(totalPrice);
       }
-
-    }
-    );
+    });
     osveziUpite();
   }
   function otkaziUpit(id, kolicina) {
@@ -267,9 +272,7 @@ function App() {
         settotalPrice(price);
         console.log(totalPrice);
       }
-
-    }
-    );
+    });
     osveziUpite();
   }
 
@@ -278,27 +281,25 @@ function App() {
     setTimeout(function () {
       document.getElementById("uspešno").style.visibility = "hidden";
       setCartNum(0);
-      proizvodi.forEach((prod) => prod.kolicina = 0);
+      proizvodi.forEach((prod) => (prod.kolicina = 0));
       settotalPrice(0);
       setCartProducts([]);
     }, 3000);
-
-
-
-
   }
-
-
-
 
   return (
     <BrowserRouter>
       <NavBar cartNum={cartNum}></NavBar>
+      <Canvas>
+        <directionalLight intensity={0.5} />
+        <ambientLight intensity={0.2}></ambientLight>
+        <OrbitControls></OrbitControls>
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
+      </Canvas>
       <Routes>
-        <Route
-          path="/"
-          element={<Main />}
-        />
+        <Route path="/" element={<Main />} />
         <Route
           path="/proizvodi/:id"
           element={<Upit product={searchProduct} posaljiUpit={posaljiUpit} />}
@@ -306,46 +307,50 @@ function App() {
         <Route
           path="/proizvodi"
           element={<Products products={proizvodi} detaljnije={detaljnije} />}
-
-
-
         />
         <Route
           path="/proizvodi/compactPloce"
-          element={<Products products={proizvodi.filter((p) => p.tip === "compact")} detaljnije={detaljnije} />}
-
-
-
+          element={
+            <Products
+              products={proizvodi.filter((p) => p.tip === "compact")}
+              detaljnije={detaljnije}
+            />
+          }
         />
         <Route
           path="/proizvodi/akrilnePloce"
-          element={<Products products={proizvodi.filter((p) => p.tip === "akrilne")} detaljnije={detaljnije} />}
-
-
-
+          element={
+            <Products
+              products={proizvodi.filter((p) => p.tip === "akrilne")}
+              detaljnije={detaljnije}
+            />
+          }
         />
         <Route
           path="/proizvodi/radnePloce"
-          element={<Products products={proizvodi.filter((p) => p.tip === "radne")} detaljnije={detaljnije} />}
-
-
-
+          element={
+            <Products
+              products={proizvodi.filter((p) => p.tip === "radne")}
+              detaljnije={detaljnije}
+            />
+          }
         />
         <Route
           path="/upiti"
           element={
-            <SviUpiti upiti={cartProducts} otkaziUpit={otkaziUpit} totalPrice={totalPrice} potvrdiPorudzbinu={potvrdiPorudzbinu} />}
-
-
+            <SviUpiti
+              upiti={cartProducts}
+              otkaziUpit={otkaziUpit}
+              totalPrice={totalPrice}
+              potvrdiPorudzbinu={potvrdiPorudzbinu}
+            />
+          }
         />
-
 
         <Route path="/kontakt" element={<Kontakt />} />
       </Routes>
       <Footer></Footer>
-
     </BrowserRouter>
   );
 }
 export default App;
-
