@@ -9,21 +9,7 @@ import Kontakt from "./components/Kontakt";
 import Products from "./components/Proizvodi";
 import Upit from "./components/Upit";
 import SviUpiti from "./components/SviUpiti";
-import { Canvas, useFrame } from "@react-three/fiber";
-import React, { Suspense, useRef } from "react";
-import { OrbitControls } from "@react-three/drei";
-import Model from "./components/Woodsavertex";
 
-const Scene = () => {
-  const scene = useRef();
-  useFrame(() => {
-  });
-  return (
-    <group ref={scene}>
-      <Model></Model>
-    </group>
-  );
-};
 
 function App() {
   const [cartNum, setCartNum] = useState(0);
@@ -290,14 +276,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar cartNum={cartNum}></NavBar>
-      <Canvas>
-        <directionalLight intensity={0.5} />
-        <ambientLight intensity={0.2}></ambientLight>
-        <OrbitControls></OrbitControls>
-        <Suspense fallback={null}>
-          <Scene />
-        </Suspense>
-      </Canvas>
+      
       <Routes>
         <Route path="/" element={<Main />} />
         <Route
