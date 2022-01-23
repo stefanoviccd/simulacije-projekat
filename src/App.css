@@ -148,10 +148,11 @@ a {
   max-width: 500px;
 }
 
+
 .portfolioImg{
   width: 500px ;
-  height: 400px;
-  padding-top: 30px;
+  height: 330px;
+  margin-top:0px;
   padding-left: 40px;
   margin-bottom: 15px;
 
@@ -386,5 +387,8 @@ input, select{
 .slicniProizvodi{
   margin-left:30px;
 }
+
+
+
 
 

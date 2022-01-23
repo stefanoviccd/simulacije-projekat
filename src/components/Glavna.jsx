@@ -18,7 +18,7 @@ function Main() {
   return (
     <>
       <Canvas>
-        <directionalLight intensity={0.5} />
+        <directionalLight intensity={0.4} />
         <ambientLight intensity={0.2}></ambientLight>
         <OrbitControls></OrbitControls>
         <Suspense fallback={null}>
@@ -30,7 +30,13 @@ function Main() {
       </div>
       <div className="gridDiv">
         <div className="image">
-          <img className="drvolex" src="../nenadex12.png"></img>
+        <video video loop muted autoPlay controls = ''
+            className="portfolioImg"
+            src="../0001-0120.ogv"
+
+            //src="https://www.daibau.rs/images/backgrounds/90/1small.jpg"
+          ></video>
+          
           <p>
             Obrada svih materijala vrši se na najsavremenijim mašinama nemačkog
             proizvođača.. Pored standardnog sečenja, nudimo usluge kantovanja
@@ -49,10 +55,7 @@ function Main() {
             Svi proizvodi su unikatni i posebni. Na Vama je da odaberete oblik,
             vrstu drveta, boju epoxy smole, i dekoraciju po želji!
           </p>
-          <img
-            className="portfolioImg"
-            src="https://www.daibau.rs/images/backgrounds/90/1small.jpg"
-          ></img>
+          <img className="drvolex" src="../nenadex12.png"></img>
         </div>
       </div>
     </>

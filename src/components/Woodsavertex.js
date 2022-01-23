@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
+
 export default function Model({ ...props }) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/woodsavertex.glb')
@@ -10,11 +11,14 @@ export default function Model({ ...props }) {
     actions.okretanjetestere.play();
     
   });
+ 
+				
+  
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="cekic" position={[-1.51, -0.51, -0.32]} rotation={[3.12, -0.07, -0.61]} scale={[0.05, -1.2, -0.08]}>
         <mesh geometry={nodes.Cylinder003.geometry} material={materials.metal} />
-        <mesh geometry={nodes.Cylinder003_1.geometry} material={materials.drvo} />
+        <mesh geometry={nodes.Cylinder003_1.geometry} material={materials.drvo}  />
       </group>
       <mesh
         geometry={nodes.podloga.geometry}
